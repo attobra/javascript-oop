@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 const Person = function (firstName, birthYear) {
   //Instance Properties
   this.firstName = firstName;
@@ -47,3 +47,69 @@ console.log(jonas.species);
 console.log(jonas.hasOwnProperty('firstName')); //true
 
 console.log(jonas.hasOwnProperty('species')); //FALSE
+
+console.log(jonas.__proto__);
+
+const h1 = document.querySelector('h1');
+console.dir(x => x + 1);
+*/
+
+/*
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+//we never create a method inside a constructor instead we create prototypes
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is accelerating at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is braking at ${this.speed} km/h`);
+};
+
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedes', 95);
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
+
+mercedes.accelerate();
+mercedes.brake();
+*/
+
+//javascript classes
+//you can write the method inside a class
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.birthYear = birthYear;
+    this.firstName = firstName;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
+
+console.log(jessica.__proto__ === PersonCl.prototype); //TRUE
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+jessica.greet();
