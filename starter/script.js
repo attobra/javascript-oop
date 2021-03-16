@@ -86,7 +86,7 @@ mercedes.brake();
 
 //javascript classes
 //you can write the method inside a class
-
+/*
 class PersonCl {
   constructor(fullName, birthYear) {
     this.birthYear = birthYear;
@@ -151,3 +151,4 @@ const account = {
 account.latest = 50;
 
 console.log(account.latest);
+*/
