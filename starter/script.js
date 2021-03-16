@@ -88,9 +88,9 @@ mercedes.brake();
 //you can write the method inside a class
 
 class PersonCl {
-  constructor(firstName, birthYear) {
+  constructor(fullName, birthYear) {
     this.birthYear = birthYear;
-    this.firstName = firstName;
+    this.fullName = fullName;
   }
 
   calcAge() {
@@ -98,11 +98,28 @@ class PersonCl {
   }
 
   greet() {
-    console.log(`Hey ${this.firstName}`);
+    console.log(`Hey ${this.fullName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+  //we add an underscore to avoid any naming conflict.
+  //with the constructor fullName.
+  //we do that anytime we want to SET a property that already exist
+  //we are creating a new full name so we have to add a getter too
+  //FOR VALIDATION: is it a full name or not? then its good to use a setter/getter
+  set fullName(name) {
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
   }
 }
 
-const jessica = new PersonCl('Jessica', 1996);
+const jessica = new PersonCl('Jessica Davis', 1996);
 console.log(jessica);
 jessica.calcAge();
 
@@ -113,3 +130,24 @@ console.log(jessica.__proto__ === PersonCl.prototype); //TRUE
 // };
 
 jessica.greet();
+
+const walter = new PersonCl('Walter', 1965);
+
+///GETTERS AND SETTERS
+
+const account = {
+  owner: 'Jonas',
+  movements: [200, 530, 120, 300],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+account.latest = 50;
+
+console.log(account.latest);
